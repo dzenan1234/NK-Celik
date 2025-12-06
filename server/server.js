@@ -34,7 +34,8 @@ mongoose.connect(url)
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch(err => console.error('Error connecting to MongoDB Atlas', err));
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
+
 app.use(express.json());
 
 app.post('/register', UserController.register);
@@ -43,6 +44,7 @@ app.get('/logout', UserController.logout);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'public'));
+
 
 app.get('/home', async (req, res) => {
   try {
@@ -359,7 +361,4 @@ app.post('/delete-from-cart', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-  console.log(`Home URL: ${serverUrl}/home`);
-});
+module.exports = app;
