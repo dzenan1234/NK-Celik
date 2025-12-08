@@ -16,7 +16,7 @@ const sessionSecret = crypto.randomBytes(64).toString('hex');
 const app = express();
 
 // --- MongoDB Connection ---
-const url = 'mongodb+srv://ahmed:ahmed123@nkcelik.qj8oewc.mongodb.net/?retryWrites=true&w=majority&appName=NKCelik';
+const url = 'mongodb+srv://jasarevicahmed999:ahmed123@cluster0.wvbq7.mongodb.net/?appName=Cluster0'
 
 mongoose.connect(url)
   .then(() => console.log('Connected to MongoDB Atlas'))
